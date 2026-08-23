@@ -17,6 +17,7 @@ Si no empieza mysql
 
 ```bash
 systemctl start mariadb
+systemctl start apache2
 ```
 ## 2. Explorar el servidor (conceptos de SQL)
 
