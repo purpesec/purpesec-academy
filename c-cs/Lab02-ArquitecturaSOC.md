@@ -22,6 +22,22 @@ Dashboard ← Indexer ← Wazuh Manager
 ```
 
 ---
+## 0. Configuración rápida de IPs
+
+VM1:
+
+```bash
+sudo ip addr flush dev ens33 && sudo ip addr add 192.168.56.10/24 dev ens33 && sudo ip link set ens33 up
+```
+
+VM2:
+
+```bash
+sudo ip addr flush dev ens33 && sudo ip addr add 192.168.56.20/24 dev ens33 && sudo ip link set ens33 up
+```
+
+Cambia ens33 por el nombre real de tu interfaz si es distinto.
+
 
 ## 1. Verificación de conectividad
 
