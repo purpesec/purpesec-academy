@@ -96,7 +96,9 @@ Resultado: base `tienda`, tabla `users(id, username, password)` con:
 
 ## 4. Desplegar la aplicación vulnerable (searchusers.php)
 
-Copiar el script a la raíz web:
+Copiar el script a la raíz web ( /var/www/html )
+
+Entonces quedaria el archivo en /var/www/html/searchusers.php
 
 ```php
 <?php
