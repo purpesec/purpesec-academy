@@ -1,6 +1,6 @@
 # Rutas de ciberseguridad
 
-Currículo abierto y en desarrollo con cinco rutas de aprendizaje, sesiones guiadas y laboratorios reproducibles. El contenido no depende de una institución concreta y puede utilizarse para estudio individual o como apoyo en clase.
+Repositorio de formación en ciberseguridad con cinco cursos organizados por sesiones, contenido práctico, guías paso a paso y laboratorios diseñados para ejecutarse en entornos controlados.
 
 > [!CAUTION]
 > Los laboratorios incluyen máquinas y aplicaciones vulnerables de forma intencional. Utiliza solo entornos aislados y sistemas propios o para los que tengas autorización expresa.
