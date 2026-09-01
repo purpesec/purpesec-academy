@@ -1,8 +1,25 @@
-# Reconocimiento y Enumeración con Metasploitable 2
+# Laboratorio: reconocimiento y enumeración con Metasploitable 2
+
+[Inicio](../../../README.md) | [Ethical Hacking](../../README.md) | [Sesión 03](../README.md)
+
+| Campo | Valor |
+|---|---|
+| Duración estimada | 2 a 3 horas |
+| Entorno | Kali Linux y Metasploitable 2 |
+| Alcance | Enumeración sin explotación |
+
+> [!CAUTION]
+> Ejecuta estos comandos únicamente contra la VM Metasploitable 2 de tu laboratorio aislado.
 
 ## Objetivo
 
 Realizar reconocimiento y enumeración sobre una máquina Metasploitable 2 dentro de una red de laboratorio.
+
+## Requisitos
+
+- Kali Linux y Metasploitable 2 en la misma red host-only.
+- Nmap, `smbclient`, WhatWeb, Gobuster, `rpcinfo` y `showmount`.
+- Autorización sobre todos los sistemas incluidos en el alcance.
 
 ```mermaid
 flowchart TD
@@ -14,7 +31,7 @@ flowchart TD
 
 ---
 
-# 1. Identificar nuestra red
+## 1. Identificar nuestra red
 
 Primero revisamos la configuración de Kali:
 
@@ -37,7 +54,7 @@ Red: 192.168.56.0/24
 
 ---
 
-# LAB 1 — Descubrimiento de hosts
+## Práctica 1: Descubrimiento de hosts
 
 Buscamos qué dispositivos están activos en nuestra red:
 
@@ -72,7 +89,7 @@ Objetivo:
 
 ---
 
-# LAB 2 — Escaneo de puertos
+## Práctica 2: Escaneo de puertos
 
 Escaneo básico:
 
@@ -116,7 +133,7 @@ nmap -p- 192.168.56.105
 
 ---
 
-# LAB 3 — Servicios y versiones
+## Práctica 3: Servicios y versiones
 
 Ahora identificamos el software que funciona detrás de cada puerto:
 
@@ -142,14 +159,14 @@ flowchart LR
 Interpretación:
 
 ```text
-FTP       → servicio
-vsftpd    → software
-2.3.4     → versión
+FTP       = servicio
+vsftpd    = software
+2.3.4     = versión
 ```
 
 ---
 
-# 2. Enumeración de servicios
+## 2. Enumeración de servicios
 
 Una vez encontrados los servicios, los investigamos de forma individual.
 
@@ -177,7 +194,7 @@ flowchart TD
 
 ---
 
-# LAB 4 — Enumeración FTP
+## Práctica 4: Enumeración FTP
 
 Confirmamos el servicio:
 
@@ -219,7 +236,7 @@ flowchart LR
 
 ---
 
-# LAB 5 — Enumeración SMB
+## Práctica 5: Enumeración SMB
 
 Confirmamos SMB:
 
@@ -236,8 +253,8 @@ smbclient -L //192.168.56.105 -N
 Opciones:
 
 ```text
--L  → listar shares
--N  → no solicitar contraseña
+-L  = listar shares
+-N  = no solicitar contraseña
 ```
 
 También podemos usar NSE:
@@ -255,7 +272,7 @@ flowchart LR
 
 ---
 
-# LAB 6 — Enumeración HTTP
+## Práctica 6: Enumeración HTTP
 
 Confirmamos el servicio web:
 
@@ -305,7 +322,7 @@ flowchart TD
 
 ---
 
-# LAB 7 — Enumeración RPC
+## Práctica 7: Enumeración RPC
 
 Si encontramos:
 
@@ -329,7 +346,7 @@ flowchart LR
 
 ---
 
-# LAB 8 — Enumeración NFS
+## Práctica 8: Enumeración NFS
 
 Confirmamos NFS:
 
@@ -370,7 +387,7 @@ flowchart LR
 
 ---
 
-# LAB FINAL — Enumeración desde cero
+## Práctica final: Enumeración desde cero
 
 Se entrega únicamente la red:
 
@@ -378,19 +395,19 @@ Se entrega únicamente la red:
 192.168.56.0/24
 ```
 
-## Paso 1 — Identificar nuestra red
+## Paso 1: Identificar nuestra red
 
 ```bash
 ip addr
 ```
 
-## Paso 2 — Descubrir hosts
+## Paso 2: Descubrir hosts
 
 ```bash
 sudo nmap -sn 192.168.56.0/24
 ```
 
-## Paso 3 — Seleccionar el objetivo
+## Paso 3: Seleccionar el objetivo
 
 Ejemplo:
 
@@ -412,7 +429,7 @@ echo $IP
 
 ---
 
-## Paso 4 — Escanear puertos
+## Paso 4: Escanear puertos
 
 ```bash
 nmap $IP
@@ -426,7 +443,7 @@ nmap -p- $IP
 
 ---
 
-## Paso 5 — Detectar servicios y versiones
+## Paso 5: Detectar servicios y versiones
 
 ```bash
 nmap -sV $IP
@@ -434,7 +451,7 @@ nmap -sV $IP
 
 ---
 
-## Paso 6 — FTP
+## Paso 6: FTP
 
 ```bash
 nmap -p21 -sV $IP
@@ -455,7 +472,7 @@ nmap -p21 --script ftp-anon $IP
 
 ---
 
-## Paso 7 — SMB
+## Paso 7: SMB
 
 ```bash
 nmap -p139,445 -sV $IP
@@ -471,7 +488,7 @@ nmap -p139,445 --script smb-enum-shares $IP
 
 ---
 
-## Paso 8 — HTTP
+## Paso 8: HTTP
 
 ```bash
 nmap -p80 -sV $IP
@@ -491,7 +508,7 @@ gobuster dir -u http://$IP -w /usr/share/wordlists/dirb/common.txt
 
 ---
 
-## Paso 9 — RPC
+## Paso 9: RPC
 
 ```bash
 rpcinfo -p $IP
@@ -499,7 +516,7 @@ rpcinfo -p $IP
 
 ---
 
-## Paso 10 — NFS
+## Paso 10: NFS
 
 ```bash
 nmap -p2049 -sV $IP
@@ -511,7 +528,7 @@ showmount -e $IP
 
 ---
 
-# Flujo completo
+## Flujo completo
 
 ```mermaid
 flowchart TD
@@ -539,7 +556,7 @@ flowchart TD
 
 ---
 
-# Resultado de la enumeración
+## Resultado de la enumeración
 
 ```mermaid
 flowchart TD
@@ -570,7 +587,7 @@ flowchart TD
     G --> G1[Exports]
 ```
 
-# Comandos principales
+## Comandos principales
 
 ```bash
 # Identificar la red
@@ -607,3 +624,20 @@ rpcinfo -p $IP
 # NFS
 showmount -e $IP
 ```
+
+## Validación final
+
+```text
+[ ] La red y el objetivo están documentados
+[ ] Se revisaron todos los puertos TCP
+[ ] Los servicios incluyen versión cuando fue posible
+[ ] FTP, SMB, HTTP, RPC y NFS fueron enumerados por separado
+[ ] Los resultados distinguen observaciones de vulnerabilidades confirmadas
+[ ] No se realizó explotación
+```
+
+## Entrega
+
+Crea una tabla con `puerto`, `servicio`, `versión`, `evidencia` y `siguiente comprobación`. Añade los comandos utilizados y un resumen de la superficie de ataque observada.
+
+[Volver a la sesión](../README.md) | [Volver a Ethical Hacking](../../README.md) | [Inicio](../../../README.md)

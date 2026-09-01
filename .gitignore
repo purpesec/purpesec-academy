@@ -1,0 +1,21 @@
+# Entornos de laboratorio
+*.ova
+*.vmdk
+*.vdi
+*.iso
+*.vmem
+*.vmsn
+
+# Secretos y credenciales
+*.env
+.env
+secrets/
+
+# Outputs de laboratorio
+*.log
+eve.json
+*.pcap
+
+# Sistema
+.DS_Store
+Thumbs.db

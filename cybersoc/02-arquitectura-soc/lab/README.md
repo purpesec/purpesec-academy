@@ -1,24 +1,35 @@
 # Laboratorio CyberSOC: Wazuh + Suricata + DVWA
 
-Guía rápida de implementación para Ubuntu Server 22.04 LTS.
+[Inicio](../../../README.md) | [CyberSOC](../../README.md) | [Sesión 02](../README.md)
 
+| Campo | Valor |
+|---|---|
+| Duración estimada | 4 a 6 horas |
+| Entorno | 2 VMs Ubuntu Server 22.04 LTS |
+| Resultado | Alerta de Suricata visible en Wazuh |
+
+> [!CAUTION]
 > Uso exclusivo en un entorno de laboratorio aislado. DVWA no debe publicarse en Internet.
+
+## Objetivo
+
+Desplegar el flujo completo de detección, desde una petición controlada a DVWA hasta la visualización de la alerta en Wazuh.
 
 ## Arquitectura
 
 | Equipo | Dirección | Componentes |
 |---|---:|---|
-| VM 1 – CyberSOC | `192.168.56.10` | Wazuh Manager, Indexer y Dashboard |
-| VM 2 – Cyberrange | `192.168.56.20` | Wazuh Agent, Suricata, DVWA y atacante |
+| VM 1: CyberSOC | `192.168.56.10` | Wazuh Manager, Indexer y Dashboard |
+| VM 2: Cyberrange | `192.168.56.20` | Wazuh Agent, Suricata, DVWA y atacante |
 | DVWA | `172.30.0.10` | Aplicación vulnerable |
 | Atacante | `172.30.0.20` | Generador de tráfico controlado |
 
 Flujo:
 
 ```text
-Atacante → DVWA → Suricata → eve.json → Wazuh Agent
-                                                ↓
-Dashboard ← Indexer ← Wazuh Manager
+Atacante -> DVWA -> Suricata -> eve.json -> Wazuh Agent
+                                                |
+Dashboard <- Indexer <- Wazuh Manager <----------+
 ```
 
 ---
@@ -105,7 +116,7 @@ sudo docker compose version
 
 ---
 
-# VM 1 – CyberSOC
+## VM 1: CyberSOC
 
 ## 3. Despliegue de Wazuh
 
@@ -194,7 +205,7 @@ Contraseña: SecretPassword
 
 ---
 
-# VM 2 – Cyberrange
+## VM 2: Cyberrange
 
 ## 4. Instalación del Wazuh Agent
 
@@ -544,7 +555,7 @@ signature:    CYBERSOC - Acceso HTTP a DVWA
 
 ---
 
-## 11. Integración Suricata–Wazuh
+## 11. Integración Suricata-Wazuh
 
 Ejecutar en **VM 2**.
 
@@ -630,7 +641,7 @@ https://192.168.56.10
 Ruta:
 
 ```text
-Threat intelligence → Threat Hunting
+Threat intelligence > Threat Hunting
 ```
 
 Consultas:
@@ -663,9 +674,15 @@ data.alert.signature_id:1000001
 
 ---
 
+## Entrega
+
+Incluye una captura o salida de cada punto de la validación final y una explicación breve del recorrido `tráfico -> Suricata -> Wazuh Agent -> Manager -> Indexer -> Dashboard`.
+
 ## Referencias
 
 - [Wazuh: despliegue con Docker](https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html)
 - [Wazuh: integración con Suricata](https://documentation.wazuh.com/current/proof-of-concept-guide/integrate-network-ids-suricata.html)
 - [Suricata Quickstart](https://docs.suricata.io/en/latest/quickstart.html)
 - [Docker Engine para Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+
+[Volver a la sesión](../README.md) | [Volver a CyberSOC](../../README.md) | [Inicio](../../../README.md)
