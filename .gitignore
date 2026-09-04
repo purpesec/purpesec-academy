@@ -6,6 +6,9 @@
 *.vmem
 *.vmsn
 
+# Documentos privados y diapositivas fuente
+*.pdf
+
 # Secretos y credenciales
 *.env
 .env

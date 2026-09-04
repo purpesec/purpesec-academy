@@ -12,7 +12,7 @@ Repositorio de formación en ciberseguridad con cinco cursos organizados por ses
 | 1 | [CyberSOC](./cybersoc/) | SIEM, IDS, monitoreo y gestión de alertas | 1 sesión | En desarrollo |
 | 2 | [Ethical Hacking](./ethical-hacking/) | Reconocimiento y enumeración de infraestructura | 1 sesión | En desarrollo |
 | 3 | [Malware Analysis](./malware-analysis/) | Análisis estático de muestras simuladas | 1 sesión | En desarrollo |
-| 4 | [Pentesting Web](./pentesting-web/) | Fundamentos web, SQL y aplicaciones vulnerables | 1 sesión | En desarrollo |
+| 4 | [Pentesting Web](./pentesting-web/) | Fundamentos web, HTTP, SQL Injection, Burp Suite y mitigaciones | 5 capítulos | Disponible |
 | 5 | [Privilege Escalation](./privilege-escalation/) | Escalada de privilegios en Linux y Windows | 0 sesiones | Planificado |
 
 `Disponible` indica que la sesión tiene material y laboratorio. `En desarrollo` indica que la ruta se publicará de forma progresiva. `Planificado` indica que todavía no hay sesiones publicadas.
