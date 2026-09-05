@@ -9,35 +9,33 @@ Repositorio de formación en ciberseguridad con cinco cursos organizados por ses
 
 | # | Ruta | Enfoque | Contenido disponible | Estado |
 |---|---|---|---:|---|
-| 1 | [CyberSOC](./cybersoc/) | SIEM, IDS, monitoreo y gestión de alertas | 1 sesión | En desarrollo |
-| 2 | [Ethical Hacking](./ethical-hacking/) | Reconocimiento y enumeración de infraestructura | 1 sesión | En desarrollo |
+| 1 | [CyberSOC](./cybersoc/) | SIEM, IDS, Threat Intelligence con CDB y correlación de IOCs | 1 módulo práctico (2 partes) | Disponible |
+| 2 | [Ethical Hacking](./ethical-hacking/) | Reconocimiento y enumeración de infraestructura | 1 módulo | En desarrollo |
 | 3 | [Malware Analysis](./malware-analysis/) | Triage, análisis estático, formato PE y telemetría dinámica | 5 capítulos | Disponible |
 | 4 | [Pentesting Web](./pentesting-web/) | Fundamentos web, HTTP, SQL Injection, Burp Suite y mitigaciones | 5 capítulos | Disponible |
-| 5 | [Privilege Escalation](./privilege-escalation/) | Escalada de privilegios en Linux y Windows | 0 sesiones | Planificado |
+| 5 | [Privilege Escalation](./privilege-escalation/) | Escalada de privilegios en Linux y Windows | Planificado | En preparación |
 
-`Disponible` indica que la sesión tiene material y laboratorio. `En desarrollo` indica que la ruta se publicará de forma progresiva. `Planificado` indica que todavía no hay sesiones publicadas.
+`Disponible` indica que el módulo cuenta con guía y laboratorio completo. `En desarrollo` indica contenido en redacción progresiva.
 
 ## Cómo estudiar
 
 1. Prepara el entorno con la [guía de configuración](./setup/).
 2. Elige una ruta y revisa sus prerrequisitos.
-3. Lee la introducción de la sesión y completa su laboratorio.
-4. Conserva las evidencias solicitadas: comandos, capturas, resultados y conclusiones.
-5. Verifica los criterios de finalización antes de continuar.
+3. Estudia los fundamentos del tema y realiza el laboratorio guiado paso a paso.
+4. Conserva las evidencias: comandos, salidas de terminal, capturas y notas de análisis.
+5. Valida los criterios de finalización de la práctica.
 
-## Formato de una sesión
+## Estructura de cada módulo
 
 ```text
-curso/
-|-- README.md                 # Índice y progreso de la ruta
+ruta/
+|-- README.md                 # Índice y visión general de la ruta
 `-- NN-tema/
-    |-- README.md             # Objetivos, conceptos y criterios de éxito
+    |-- README.md             # Fundamentos técnicos y objetivos
     `-- lab/
-        |-- README.md         # Guía práctica
+        |-- README.md         # Guía de laboratorio paso a paso
         `-- archivos-de-apoyo
 ```
-
-La numeración conserva el orden de las sesiones impartidas. Por eso algunas rutas empiezan en `02` o `03`; las sesiones anteriores se incorporarán cuando su material esté listo para publicarse.
 
 ## Estructura del repositorio
 
@@ -62,4 +60,4 @@ La numeración conserva el orden de las sesiones impartidas. Por eso algunas rut
 
 ## Contribuir
 
-Consulta [CONTRIBUTING.md](./CONTRIBUTING.md) para publicar una sesión o mejorar un laboratorio. Para reportes de seguridad del repositorio, consulta [SECURITY.md](./SECURITY.md).
+Consulta [CONTRIBUTING.md](./CONTRIBUTING.md) para proponer mejoras o nuevos laboratorios. Para reportes de seguridad del repositorio, consulta [SECURITY.md](./SECURITY.md).
